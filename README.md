@@ -16,9 +16,10 @@ To simplify setting up the demo environment, `db.sqlite` and `.env` files are co
 
 ## Technologies used
 
-- [Next.js](https://nextjs.org)
-- [Prisma](https://prisma.io) with [sqlite](https://www.sqlite.org/) (./prisma/db.sqlite is explicitly added to repo)
-- [Tailwind CSS](https://tailwindcss.com) + [shadcn](https://ui.shadcn.com/)
+- [Next.js](https://nextjs.org) for easy deployment, caching and app router
+- [Prisma](https://prisma.io) with [sqlite](https://www.sqlite.org/) to store content in most popular db on the world
+- [Tailwind CSS](https://tailwindcss.com) for rapid styling
+- [shadcn](https://ui.shadcn.com/) for primitives with accessibility
 
 ## Deploy with ease
 
