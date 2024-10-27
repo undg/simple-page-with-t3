@@ -18,9 +18,11 @@ export default function HomePage() {
         <h1 className="text-xl font-bold">{homePage?.title}</h1>
         <p className="text-base">{homePage?.description}</p>
         <div className="mt-8 hidden justify-start md:flex">
-          <Button>
-            <span>Book Now</span> <MoveRight />
-          </Button>
+          <Link href="/">
+            <Button>
+              <span>Book Now</span> <MoveRight />
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -30,21 +32,30 @@ export default function HomePage() {
             key={category.id}
             className="relative aspect-square md:h-full md:w-full"
           >
-            <Image src={category.image} alt={category.name} fill className="object-cover" />
+            <Image
+              src={category.image}
+              alt={category.name}
+              fill
+              className="object-cover"
+            />
             <div className="absolute bottom-0 w-full p-1 text-white">
-              <Button variant="ghost" size="full">
-                <span className="text-xl">{category.name}</span>
-                <MoveRight />
-              </Button>
+              <Link href="/">
+                <Button variant="ghost" size="full">
+                  <span className="text-xl">{category.name}</span>
+                  <MoveRight />
+                </Button>
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
       <div className="flex justify-center md:hidden">
-        <Button>
-          <span>Book Now</span> <MoveRight />
-        </Button>
+        <Link href="/">
+          <Button>
+            <span>Book Now</span> <MoveRight />
+          </Button>
+        </Link>
       </div>
     </main>
   );
