@@ -1,7 +1,10 @@
-
 # Villa Holidays
 
-This is project is bootstrapped with [T3 Stack](https://create.t3.gg/)
+This project is bootstrapped with [T3 Stack](https://create.t3.gg/)
+
+# Demo
+
+[![Watch the video](https://img.youtube.com/vi/UgX2vBuKyHA/0.jpg)](https://youtu.be/UgX2vBuKyHA)
 
 ## Installation
 
