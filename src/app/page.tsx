@@ -55,7 +55,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <div className="flex justify-center md:hidden">
+      <div className="flex justify-center md:hidden mb-12">
         <Link href="/">
           <Button size="fixed">
             <span>Book Now</span> <MoveRight />
