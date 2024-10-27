@@ -12,7 +12,7 @@ datasource db {
 
 model Pages {
     id          Int      @id @default(autoincrement())
-    name        String // homepage
+    name        String // villa-holidays
     title       String // Villa Holidays
     header      String // Our Extraordinary
     description String // Private villa
