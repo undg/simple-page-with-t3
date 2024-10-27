@@ -10,11 +10,22 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Pages {
+    id          Int      @id @default(autoincrement())
+    name        String // homepage
+    title       String // Villa Holidays
+    header      String // Our Extraordinary
+    description String // Private villa
+    link        String // `/`
+
+    @@index([name])
+}
+
+model Categories {
+    id          Int      @id @default(autoincrement())
+    name        String // Villas with Pools, Romantic Villas ...
+    link        String 
+    image       String
 
     @@index([name])
 }
