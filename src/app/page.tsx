@@ -1,36 +1,50 @@
+import { MoveRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { Button } from "~/@/ui/button";
+
+import { db } from "~/server/db";
+
+const categories = await db.categories.findMany();
+const homePage = await db.pages.findFirst({
+  where: { name: "villa-holidays" },
+});
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
+    <main className="m-auto grid w-full max-w-screen-2xl bg-[#E6F1F8] bg-[url('/img/stamp.png')] bg-[length:33%_auto] bg-[right_1rem_top_1rem] bg-no-repeat md:grid-cols-2 md:bg-auto md:bg-[left_0_top_2rem] md:px-32 md:pt-16">
+      <div className="p-8">
+        <span className="text-base">{homePage?.header}</span>
+        <h1 className="text-xl font-bold">{homePage?.title}</h1>
+        <p className="text-base">{homePage?.description}</p>
+        <div className="mt-8 hidden justify-start md:flex">
+          <Button>
+            <span>Book Now</span> <MoveRight />
+          </Button>
         </div>
+      </div>
+
+      <div className="grid grid-cols-2 grid-rows-2">
+        {categories.map((category) => (
+          <div
+            key={category.id}
+            className="relative aspect-square md:h-full md:w-full"
+          >
+            <Image src={category.image} alt={category.name} fill className="object-cover" />
+            <div className="absolute bottom-0 w-full p-1 text-white">
+              <Button variant="ghost" size="full">
+                <span className="text-xl">{category.name}</span>
+                <MoveRight />
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-center md:hidden">
+        <Button>
+          <span>Book Now</span> <MoveRight />
+        </Button>
       </div>
     </main>
   );
