@@ -7,6 +7,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        aktiv: ['Aktiv Grotesk', 'sans-serif'],
+        domaine: ['Domaine Display', 'serif'],
+        haikus: ['Haikus Script', 'cursive'],
       },
     },
   },
