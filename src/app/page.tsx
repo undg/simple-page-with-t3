@@ -12,14 +12,19 @@ const homePage = await db.pages.findFirst({
 
 export default function HomePage() {
   return (
-    <main className="m-auto grid w-full max-w-screen-2xl bg-[#E6F1F8] bg-[url('/img/stamp.png')] bg-[length:33%_auto] bg-[right_1rem_top_1rem] bg-no-repeat md:grid-cols-2 md:bg-auto md:bg-[left_0_top_2rem] md:px-32 md:pt-16">
+    <main className="m-auto grid gap-8 lg:gap-12 w-full max-w-screen-2xl bg-[#E6F1F8] bg-[url('/img/stamp.png')] bg-[length:33%_auto] bg-[right_1rem_top_1rem] bg-no-repeat md:grid-cols-2 md:bg-auto md:bg-[left_0_top_2rem] md:px-12 lg:px-32 md:pt-16">
+
       <div className="p-8">
-        <span className="text-base">{homePage?.header}</span>
-        <h1 className="text-xl font-bold">{homePage?.title}</h1>
-        <p className="text-base">{homePage?.description}</p>
-        <div className="mt-8 hidden justify-start md:flex">
+        <div className="md:h-16 md:relative">
+          <span className="py-4 font-haikus bg-gradient-to-r from-[#0172B1] to-[#019EF5] bg-clip-text text-transparent md:absolute md:-left-16 text-2xl md:text-4xl ">
+            {homePage?.header}
+          </span>
+        </div>
+        <h1 className="font-domaine text-4xl md:text-6xl font-bold my-8 md:my-12">{homePage?.title}</h1>
+        <p className="text-base md:text-lg">{homePage?.description}</p>
+        <div className="mt-12 hidden justify-start md:flex">
           <Link href="/">
-            <Button>
+          <Button size="fixed">
               <span>Book Now</span> <MoveRight />
             </Button>
           </Link>
@@ -52,7 +57,7 @@ export default function HomePage() {
 
       <div className="flex justify-center md:hidden">
         <Link href="/">
-          <Button>
+          <Button size="fixed">
             <span>Book Now</span> <MoveRight />
           </Button>
         </Link>
